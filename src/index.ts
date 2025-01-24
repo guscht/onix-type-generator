@@ -1,19 +1,6 @@
 import * as fs from 'fs';
 import { XMLParser } from 'fast-xml-parser';
 
-// Define the structure of an ONIX code list entry
-interface CodeListEntry {
-  CodeValue: string;
-  Description: string;
-}
-
-// Define the structure of a parsed ONIX code list
-interface CodeList {
-  CodeListNumber: string;
-  CodeListName: string;
-  Codes: CodeListEntry[];
-}
-
 // Helper function to format a string as a valid TypeScript enum key
 const formatEnumKey = (key: string): string =>
   key.replace(/\s+/g, '_').replace(/[^\w]/g, '').toUpperCase();
