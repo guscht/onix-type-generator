@@ -5,7 +5,7 @@ Build the tool by running the following:
     npm install
     npx tsc
 
-To generate enums from a xsd Onix CodeList file. First download such a file. They can for example be downloaded from [here](https://www.editeur.org/14/Code-Lists/#CodeListFiles) (you will need to download the zip file and unpack it).
+To generate enums from a xsd Onix CodeList file, first download such a file. They can for example be downloaded from [here](https://www.editeur.org/14/Code-Lists/#CodeListFiles) (you will need to download the zip file and unpack it).
 
 You can then run the script to generate the TypeScript enum files via:
 
