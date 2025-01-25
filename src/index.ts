@@ -1,16 +1,16 @@
-import * as fs from 'fs';
-import { generateEnumsFromXSD } from './enums';
+import * as fs from "fs"
+import { generateEnumsFromXSD } from "./enums"
 
 // Entry point
 const main = () => {
-  const xsdFilePath = './data/ONIX_BookProduct_CodeLists.xsd'; // Replace with the actual path to the XSD file
-  const outputDir = './data/codelist/output/';
+  const xsdFilePath = "./data/ONIX_BookProduct_CodeLists.xsd" // Replace with the actual path to the XSD file
+  const outputDir = "./data/codelist/output/"
 
   if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+    fs.mkdirSync(outputDir, { recursive: true })
   }
 
-  generateEnumsFromXSD(xsdFilePath, outputDir);
-};
+  generateEnumsFromXSD(xsdFilePath, outputDir)
+}
 
-main();
+main()
