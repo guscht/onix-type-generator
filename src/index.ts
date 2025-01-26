@@ -1,17 +1,21 @@
 #!/usr/bin/env node
-
-import * as fs from "fs"
-import { generateEnumsFromXSD } from "./enums.js"
-import { Command } from "commander"
+import * as fs from 'fs';
+import { generateEnumsFromXSD } from './enums.js';
+import { generateElementMapFromXSD } from './analysis.js';
+import { Command } from 'commander';
 
 const program = new Command()
 
 program
     .command("generate-enums")
-    .description("Generate enums from a CodeList file")
+    .description("Generate enums from a BookProduct-file")
     .requiredOption(
-        "-s, --source <source>",
-        "The source xsd file that contains the CodeLists",
+        "-b, --bookProduct <bookProduct>",
+        "The source xsd file that contains the BookProduct-elements",
+    )
+    .requiredOption(
+        "-c, --codeList <codeList>",
+        "The source xsd file that contains the CodeLists Information",
     )
     .option(
         "-o, --output <output>",
@@ -19,35 +23,31 @@ program
         "./data/codelist/output",
     )
     .action((options) => {
-        console.log(`Generating enums from ${options.source} in ${options.output}`)
+        console.log(`Generating enums in ${options.output}`)
 
         if (!fs.existsSync(options.output)) {
             fs.mkdirSync(options.output, { recursive: true })
         }
 
-        generateEnumsFromXSD(options.source, options.output)
+        generateEnumsFromXSD(options.bookProduct, options.codeList, options.output)
     })
 
 program
-    .command("generate-types")
-    .description("Generate typescript types from a xsd file")
+    .command("generate-element-map")
+    .description("Generate an element map from a xsd file for analysis")
     .requiredOption(
-        "-s, --source <source>",
-        "The source xsd file that contains the definition of the types",
+        "-b, --bookProduct <bookProduct>",
+        "The source xsd file that contains the BookProduct-elements",
     )
-    .option(
+    .requiredOption(
         "-o, --output <output>",
-        "The output directory where the types should be saved",
-        "./data/types/output",
+        "The output file where the element map should be saved"
     )
     .action((options) => {
-        console.log(`Generating types from ${options.source} in ${options.output}`)
-
-        //TODO: Add type generation code here.
+        console.log(`Generating elementMap from ${options.bookProduct} in ${options.output}`)
+        generateElementMapFromXSD(options.bookProduct, options.output)
     })
 
-
-// Add a global help option and parse the command line arguments
 program
     .name("onix-type-generator")
     .description(

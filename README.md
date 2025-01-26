@@ -25,12 +25,22 @@ onixtg --version
 
 ## Usage
 
-To generate enums from a xsd Onix CodeList file, first download such a file. They can for example be downloaded from [here](https://www.editeur.org/14/Code-Lists/#CodeListFiles) (you will need to download the zip file and unpack it).
+### Generating enums
 
-You can then run the script to generate the TypeScript enum files via:
+To generate enums from an xsd Onix CodeList file together with a xsd BookProduct file, first download both files. They can for example be downloaded from [here](https://www.editeur.org/files/ONIX%203/ONIX_BookProduct_3.1_XSDs+codes_Issue_68.zip) (you will need to download the zip file and unpack it).
+
+You can then run the script to generate the TypeScript enum files by amending the following command.
 
 ```bash
-onixtg generate-enums -s ./data/CodeLists_sample.xsd -o ./data/codelist
+onixtg generate-enums -b ./data/BookProduct_sample.xsd -c ./data/CodeLists_sample.xsd -o ./data/enums
+```
+
+### Generate Analysis
+
+To ensure that all elements have been parsed correctly, some analysis needs to be done. To get an overview over the different types of elements and their structure an elementMap can be generated. The elementMap shows the xsd-structure of the elements and the respective occurence-count of the structure. It can be generated via the following command.
+
+```bash
+onixtg generate-element-map -b ./data/BookProduct_sample.xsd -o ./data/elementMap.json"
 ```
 
 At the moment this tool doesn't have more functionality. But stay tuned, there will be more.

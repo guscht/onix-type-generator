@@ -1,5 +1,8 @@
 {
+  "exec": "node --inspect --import tsx src/index.ts generate-enums -b ./data/BookProduct_sample.xsd -c ./data/CodeLists_sample.xsd -o ./data/enums",
+  "exec2": "node --inspect --import tsx src/index.ts generate-enums -b ./data/ONIX_BookProduct_3.1_short.xsd -c ./data/ONIX_BookProduct_CodeLists.xsd -o ./data/enums",
+  "exec3": "node --inspect --import tsx src/index.ts generate-element-map -b ./data/BookProduct_sample.xsd -o ./data/elementMap.json",
+  "exec4": "node --inspect --import tsx src/index.ts generate-element-map -b ./data/ONIX_BookProduct_3.1_short.xsd -o ./data/elementMap.json",
   "watch": ["src"],
-  "ext": "ts",
-  "exec": "node --inspect --import tsx src/index.ts generate-enums -s ./data/CodeLists_sample.xsd -o ./data/codelist"
+  "ext": "ts"
 }

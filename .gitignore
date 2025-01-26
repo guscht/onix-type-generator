@@ -2,3 +2,4 @@ node_modules/
 dist/
 data/*
 !data/CodeLists_sample.xsd
+!data/BookProduct_sample.xsd
