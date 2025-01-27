@@ -1,0 +1,6 @@
+# Ignore artifacts:
+coverage
+reports
+README.md
+CHANGELOG.md
+package-lock.json
