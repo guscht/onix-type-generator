@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+
 import * as fs from "fs"
-import { generateEnumsFromXSD } from "./enums"
+import { generateEnumsFromXSD } from "./enums.js"
 import { Command } from "commander"
 
 const program = new Command()
