@@ -27,14 +27,12 @@ const generateEnumsFromXSD = (xsdFilePath: string, outputDir: string) => {
   // Iterate over each code list and generate a TypeScript enum
   codeLists.forEach((codeList: any) => {
     const codeListNumber = codeList["@_name"]
-    console.log(codeList)
     const codeListName =
       codeList["xs:annotation"]?.["xs:documentation"]?.["#text"] ||
       `CodeList${codeListNumber}`
     const enumName = formatEnumKey(codeListName)
 
     const values = codeList["xs:restriction"]?.["xs:enumeration"]
-    console.log(values)
     if (!values || !Array.isArray(values)) {
       console.warn(`No values found for ${codeListName}. Skipping.`)
       return

@@ -30,7 +30,7 @@ To generate enums from a xsd Onix CodeList file, first download such a file. The
 You can then run the script to generate the TypeScript enum files via:
 
 ```bash
-onixtg generate-enums -s ./data/ONIX_BookProduct_CodeLists.xsd -o ./data/codelist/
+onixtg generate-enums -s ./data/CodeLists_sample.xsd -o ./data/codelist
 ```
 
 At the moment this tool doesn't have more functionality. But stay tuned, there will be more.

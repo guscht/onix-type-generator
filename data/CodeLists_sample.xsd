@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="List1">
+		<xs:annotation>
+			<xs:documentation source="ONIX Code List 1">Notification or update type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:documentation>Early notification</xs:documentation>
+					<xs:documentation>Use for a complete record issued earlier than approximately six months before publication</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:documentation>Advance notification (confirmed)</xs:documentation>
+					<xs:documentation>Use for a complete record issued to confirm advance information approximately six months before publication; or for a complete record issued after that date and before information has been confirmed from the book-in-hand</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:documentation>Notification confirmed on publication</xs:documentation>
+					<xs:documentation>Use for a complete record issued to confirm advance information at or just before actual publication date, usually from the book-in-hand, or for a complete record issued at any later date</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="04">
+				<xs:annotation>
+					<xs:documentation>Update (partial)</xs:documentation>
+					<xs:documentation>In ONIX 3.0 or later only, use when sending a ‘block update’ record. A block update implies using the supplied block(s) to update the existing record for the product, replacing only the blocks included in the block update, and leaving other blocks unchanged – for example, replacing old information from Blocks 4 and 6 with the newly-received data while retaining information from Blocks 1–3, 5 and 7–8 untouched. In previous ONIX releases, and for ONIX 3.0 or later using other notification types, updating is by replacing the complete record with the newly-received data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="05">
+				<xs:annotation>
+					<xs:documentation>Delete</xs:documentation>
+					<xs:documentation>Use when sending an instruction to delete a record which was previously issued. Note that a Delete instruction should NOT be used when a product is cancelled, put out of print, or otherwise withdrawn from sale: this should be handled as a change of Publishing status, leaving the receiver to decide whether to retain or delete the record. A Delete instruction is used ONLY when there is a particular reason to withdraw a record completely, eg because it was issued in error</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="08">
+				<xs:annotation>
+					<xs:documentation>Notice of sale</xs:documentation>
+					<xs:documentation>Notice of sale of a product, from one publisher to another: sent by the publisher disposing of the product</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="09">
+				<xs:annotation>
+					<xs:documentation>Notice of acquisition</xs:documentation>
+					<xs:documentation>Notice of acquisition of a product, by one publisher from another: sent by the acquiring publisher</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="88">
+				<xs:annotation>
+					<xs:documentation>Test update (Partial)</xs:documentation>
+					<xs:documentation>Only for use in ONIX 3.0 or later. Record may be processed for test purposes, but data should be discarded when testing is complete. Sender must ensure the &lt;RecordReference&gt; matches a previously-sent Test record</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="89">
+				<xs:annotation>
+					<xs:documentation>Test record</xs:documentation>
+					<xs:documentation>Record may be processed for test purposes, but data should be discarded when testing is complete. Sender must ensure the &lt;RecordReference&gt; does not match any previously-sent live product record</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="List2">
+		<xs:annotation>
+			<xs:documentation source="ONIX Code List 2">Product composition</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="00">
+				<xs:annotation>
+					<xs:documentation>Single-component retail product</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:documentation>Single-component, not available separately</xs:documentation>
+					<xs:documentation>Used only when an ONIX record is required for a component-as-an-item, even though it is not currently available as such</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation>Multiple-component retail product</xs:documentation>
+					<xs:documentation>Multiple-component product retailed as a whole</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation>Multiple-item collection, retailed as separate parts</xs:documentation>
+					<xs:documentation>Used only when an ONIX record is required for a collection-as-a-whole, even though it is not currently retailed as such</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="20">
+				<xs:annotation>
+					<xs:documentation>Trade-only product</xs:documentation>
+					<xs:documentation>Product available to the book trade, but not for retail sale, and not carrying retail items, eg empty dumpbin, empty counterpack, promotional material</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="30">
+				<xs:annotation>
+					<xs:documentation>Multiple-item trade-only pack</xs:documentation>
+					<xs:documentation>Product available to the book trade, but not for general retail sale as a whole. It carries multiple components for retailing as separate items, eg shrink-wrapped trade pack, filled dumpbin, filled counterpack</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="31">
+				<xs:annotation>
+					<xs:documentation>Multiple-item pack</xs:documentation>
+					<xs:documentation>Carrying multiple components, primarily for retailing as separate items. The pack may be split and retailed as separate items OR retailed as a single item. Use instead of Multiple-item trade-only pack (code 30) if the data provider specifically wishes to make explicit that the pack may optionally be retailed as a whole</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="List3">
+		<xs:annotation>
+			<xs:documentation source="ONIX Code List 3">Record source type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="00">
+				<xs:annotation>
+					<xs:documentation>Unspecified</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:documentation>Publisher</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:documentation>Publisher’s distributor</xs:documentation>
+					<xs:documentation>Use to designate a distributor providing primary warehousing and fulfillment for a publisher or for a publisher’s sales agent, as distinct from a wholesaler</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:documentation>Wholesaler</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="04">
+				<xs:annotation>
+					<xs:documentation>Bibliographic agency</xs:documentation>
+					<xs:documentation>Bibliographic data aggregator</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="05">
+				<xs:annotation>
+					<xs:documentation>Library bookseller</xs:documentation>
+					<xs:documentation>Library supplier. Bookseller selling to libraries (including academic libraries)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="06">
+				<xs:annotation>
+					<xs:documentation>Publisher’s sales agent</xs:documentation>
+					<xs:documentation>Use for a publisher’s sales agent responsible for marketing the publisher’s products within a territory, as opposed to a publisher’s distributor who fulfills orders but does not market</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="07">
+				<xs:annotation>
+					<xs:documentation>Publisher’s conversion service provider</xs:documentation>
+					<xs:documentation>Downstream provider of e-publication format conversion services (who might also be a distributor or retailer of the converted e-publication), supplying metadata on behalf of the publisher. The assigned ISBN is taken from the publisher’s ISBN prefix</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="08">
+				<xs:annotation>
+					<xs:documentation>Conversion service provider</xs:documentation>
+					<xs:documentation>Downstream provider of e-publication format conversion services (who might also be a distributor or retailer of the converted e-publication), supplying metadata on behalf of the publisher. The assigned ISBN is taken from the service provider’s prefix (whether or not the service provider dedicates that prefix to a particular publisher)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="09">
+				<xs:annotation>
+					<xs:documentation>ISBN Registration Agency</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation>ISTC Registration Agency</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation>Retail bookseller</xs:documentation>
+					<xs:documentation>Bookseller selling primarily to consumers</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation>Education bookseller</xs:documentation>
+					<xs:documentation>Bookseller selling primarily to educational institutions</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation>Library</xs:documentation>
+					<xs:documentation>Library service providing enhanced metadata to publishers or other parties</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
