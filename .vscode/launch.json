@@ -3,6 +3,7 @@
   "configurations": [
     {
       "name": "Debug via NPM Script",
+      "runtimeVersion": "22.13.1",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npm",
