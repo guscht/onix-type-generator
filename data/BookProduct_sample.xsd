@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns="http://ns.editeur.org/onix/3.1/short" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:onix="http://ns.editeur.org/onix/3.1/short" elementFormDefault="qualified" targetNamespace="http://ns.editeur.org/onix/3.1/short">
+	<xs:include schemaLocation="ONIX_BookProduct_CodeLists.xsd" />
+	<xs:include schemaLocation="ONIX_XHTML_Subset.xsd" />
+
+	<xs:element name="a002">
+		<xs:annotation>
+			<xs:documentation>Coded indication of the type of Product record (eg initial notification, pre- or post-publication update, block update, test update)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="List1">
+					<xs:attribute name="refname">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="NotificationType" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="shortname">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="a002" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attributeGroup ref="generalAttributes" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="x314">
+		<xs:annotation>
+			<xs:documentation>Indication whether the product consists of just one or multiple components</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="List2">
+					<xs:attribute name="refname">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="ProductComposition" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="shortname">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="x314" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attributeGroup ref="generalAttributes" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="a194">
+		<xs:annotation>
+			<xs:documentation>Type of the organization that is the source of the metadata record, eg a publisher, data aggregator, distributor</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="List3">
+					<xs:attribute name="refname">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="RecordSourceType" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="shortname">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="a194" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attributeGroup ref="generalAttributes" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
